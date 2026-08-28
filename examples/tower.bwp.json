@@ -1,0 +1,45 @@
+{
+ "format": "brickwork-project",
+ "schema": 3,
+ "app": "1.0.0",
+ "id": "proj_mtcxx9ok_3xrc",
+ "name": "Tower challenge",
+ "created": 1787920871492,
+ "sample": true,
+ "settings": {
+  "baseW": 32,
+  "baseD": 32
+ },
+ "layers": [
+  {
+   "id": "layer_base",
+   "name": "Layer 1",
+   "color": "#F5CD2F",
+   "visible": true,
+   "locked": false
+  }
+ ],
+ "groups": [],
+ "bricks": [
+  {
+   "i": "brk_mtcxx9ok_3yb7",
+   "p": "plate-4x4",
+   "c": "gray",
+   "x": 28,
+   "y": 0,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9ok_3zm7",
+   "p": "brick-2x4",
+   "c": "red",
+   "x": 28,
+   "y": 1,
+   "z": 30,
+   "r": 1,
+   "l": "layer_base"
+  }
+ ]
+}

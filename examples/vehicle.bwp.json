@@ -1,0 +1,185 @@
+{
+ "format": "brickwork-project",
+ "schema": 3,
+ "app": "1.0.0",
+ "id": "proj_mtcxx9oj_2fjy",
+ "name": "Simple vehicle",
+ "created": 1787920871491,
+ "sample": true,
+ "settings": {
+  "baseW": 32,
+  "baseD": 32
+ },
+ "layers": [
+  {
+   "id": "layer_base",
+   "name": "Layer 1",
+   "color": "#F5CD2F",
+   "visible": true,
+   "locked": false
+  }
+ ],
+ "groups": [],
+ "bricks": [
+  {
+   "i": "brk_mtcxx9oj_2gzu",
+   "p": "plate-2x6",
+   "c": "darkgray",
+   "x": 28,
+   "y": 3,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2hpb",
+   "p": "wheel-small",
+   "c": "rubberblack",
+   "x": 24,
+   "y": 0,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2ip7",
+   "p": "wheel-small",
+   "c": "rubberblack",
+   "x": 32,
+   "y": 0,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2jme",
+   "p": "wheel-holder-2x2",
+   "c": "darkgray",
+   "x": 28,
+   "y": 1,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2k9",
+   "p": "wheel-small",
+   "c": "rubberblack",
+   "x": 24,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2lhb",
+   "p": "wheel-small",
+   "c": "rubberblack",
+   "x": 32,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2mlo",
+   "p": "wheel-holder-2x2",
+   "c": "darkgray",
+   "x": 28,
+   "y": 1,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2nzo",
+   "p": "plate-2x4",
+   "c": "red",
+   "x": 28,
+   "y": 4,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2o6d",
+   "p": "slope-2x2-45",
+   "c": "red",
+   "x": 28,
+   "y": 4,
+   "z": 32,
+   "r": 2,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2peo",
+   "p": "brick-2x2",
+   "c": "red",
+   "x": 28,
+   "y": 5,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2qa8",
+   "p": "slope-2x2-45",
+   "c": "transblue",
+   "x": 28,
+   "y": 5,
+   "z": 28,
+   "r": 2,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2rk7",
+   "p": "plate-2x4",
+   "c": "red",
+   "x": 28,
+   "y": 8,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2sza",
+   "p": "tile-2x2",
+   "c": "red",
+   "x": 28,
+   "y": 9,
+   "z": 24,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2tem",
+   "p": "tile-2x2",
+   "c": "red",
+   "x": 28,
+   "y": 9,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2uyv",
+   "p": "round-1x1-plate",
+   "c": "transyellow",
+   "x": 28,
+   "y": 7,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2v8h",
+   "p": "round-1x1-plate",
+   "c": "transyellow",
+   "x": 30,
+   "y": 7,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  }
+ ]
+}

@@ -1,0 +1,385 @@
+{
+ "format": "brickwork-project",
+ "schema": 3,
+ "app": "1.0.0",
+ "id": "proj_mtcxx9oj_2w99",
+ "name": "Bridge challenge",
+ "created": 1787920871491,
+ "sample": true,
+ "settings": {
+  "baseW": 40,
+  "baseD": 32
+ },
+ "layers": [
+  {
+   "id": "layer_base",
+   "name": "Layer 1",
+   "color": "#F5CD2F",
+   "visible": true,
+   "locked": false
+  }
+ ],
+ "groups": [],
+ "bricks": [
+  {
+   "i": "brk_mtcxx9oj_2xkd",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 8,
+   "y": 0,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2yxj",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 8,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_2zny",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 12,
+   "y": 0,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_30t8",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 12,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_311d",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 8,
+   "y": 3,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3295",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 8,
+   "y": 3,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_33er",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 12,
+   "y": 3,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_34ud",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 12,
+   "y": 3,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_35nn",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 8,
+   "y": 6,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_36dr",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 8,
+   "y": 6,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_37bx",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 12,
+   "y": 6,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_38gz",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 12,
+   "y": 6,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_399y",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 8,
+   "y": 9,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3ap7",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 8,
+   "y": 9,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3bqj",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 12,
+   "y": 9,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3cfa",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 12,
+   "y": 9,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3djv",
+   "p": "plate-2x4",
+   "c": "lightgray",
+   "x": 8,
+   "y": 12,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3emt",
+   "p": "plate-2x4",
+   "c": "lightgray",
+   "x": 12,
+   "y": 12,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3f4r",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 56,
+   "y": 0,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3gd8",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 56,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3h35",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 60,
+   "y": 0,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3iwp",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 60,
+   "y": 0,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3j2n",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 56,
+   "y": 3,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3kf1",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 56,
+   "y": 3,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3ls9",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 60,
+   "y": 3,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3m1v",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 60,
+   "y": 3,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3n4n",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 56,
+   "y": 6,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3o2c",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 56,
+   "y": 6,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3pia",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 60,
+   "y": 6,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3qqj",
+   "p": "brick-2x2",
+   "c": "gray",
+   "x": 60,
+   "y": 6,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3rr6",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 56,
+   "y": 9,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3s4p",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 56,
+   "y": 9,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3tz4",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 60,
+   "y": 9,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3ujt",
+   "p": "brick-2x2",
+   "c": "darkgray",
+   "x": 60,
+   "y": 9,
+   "z": 32,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3vul",
+   "p": "plate-2x4",
+   "c": "lightgray",
+   "x": 56,
+   "y": 12,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  },
+  {
+   "i": "brk_mtcxx9oj_3wif",
+   "p": "plate-2x4",
+   "c": "lightgray",
+   "x": 60,
+   "y": 12,
+   "z": 28,
+   "r": 0,
+   "l": "layer_base"
+  }
+ ]
+}

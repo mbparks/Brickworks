@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BRICKWORK — virtual brick building sandbox</title>
+<meta name="description" content="A local-first sandbox for building models from interlocking toy bricks in the browser. Nothing leaves your machine.">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="rail">
+    <div class="brand"><b>BRICKWORK</b><span class="ver" id="ver">v0.0.0</span></div>
+
+    <div class="rail-group">
+      <button class="btn" id="btn-project" aria-haspopup="dialog">Project</button>
+      <button class="btn icon" id="btn-undo" title="Undo (Ctrl+Z)" aria-label="Undo" disabled>&#8630;</button>
+      <button class="btn icon" id="btn-redo" title="Redo (Ctrl+Shift+Z)" aria-label="Redo" disabled>&#8631;</button>
+    </div>
+    <div class="rail-sep"></div>
+
+    <div class="rail-group seg" role="radiogroup" aria-label="Tool" id="tools">
+      <button class="btn on" data-tool="place" role="radio" aria-checked="true" title="Place bricks (P)">&#9635;<span class="lbl-opt"> Place</span></button>
+      <button class="btn" data-tool="select" role="radio" aria-checked="false" title="Select (V)">&#11034;<span class="lbl-opt"> Select</span></button>
+      <button class="btn" data-tool="move" role="radio" aria-checked="false" title="Move (M)">&#10021;<span class="lbl-opt"> Move</span></button>
+      <button class="btn" data-tool="rotate" role="radio" aria-checked="false" title="Rotate (T)">&#10227;<span class="lbl-opt"> Rotate</span></button>
+      <button class="btn" data-tool="orbit" role="radio" aria-checked="false" title="Orbit the camera (O)">&#9677;<span class="lbl-opt"> Orbit</span></button>
+    </div>
+    <div class="rail-sep"></div>
+
+    <div class="rail-group">
+      <label class="sr-only" for="sel-style">Render style</label>
+      <select class="ctl" id="sel-style" style="width:auto;min-width:150px"></select>
+      <button class="btn icon" id="btn-theme" title="Switch between the dark and light workshop">&#9680;</button>
+    </div>
+
+    <div class="rail-spacer"></div>
+
+    <div class="rail-group seg" role="radiogroup" aria-label="Mode">
+      <button class="btn on" id="mode-easy" role="radio" aria-checked="true">Easy</button>
+      <button class="btn" id="mode-advanced" role="radio" aria-checked="false">Advanced</button>
+    </div>
+    <div class="rail-sep"></div>
+    <div class="rail-group">
+      <button class="btn icon" id="btn-left" title="Show or hide the brick trays" aria-pressed="true">&#9776;</button>
+      <button class="btn icon" id="btn-right" title="Show or hide the inspector" aria-pressed="true">&#9783;</button>
+      <button class="btn icon" id="btn-help" title="Help and keyboard shortcuts (?)">?</button>
+    </div>
+  </header>
+
+  <aside id="left" class="panel" aria-label="Bricks and colours">
+    <div class="grip" id="grip-left" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Resize the brick trays"></div>
+
+    <section class="psection" id="sec-catalog" style="flex:1 1 auto;min-height:0;display:flex;flex-direction:column">
+      <button class="phead" aria-expanded="true"><span>Bricks</span><span class="count" id="cat-count"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody flush" style="flex:1 1 auto;min-height:0;display:flex;flex-direction:column;padding:0">
+        <div class="catalog-tools">
+          <label class="sr-only" for="q">Search bricks</label>
+          <input class="ctl" id="q" type="search" placeholder="Search bricks&#8230;" autocomplete="off">
+          <button class="btn icon sm" id="btn-view-toggle" title="Switch between grid and list">&#9636;</button>
+          <button class="btn icon sm" id="btn-thumb-size" title="Thumbnail size">&#10530;</button>
+        </div>
+        <div class="chips" id="cat-chips"></div>
+        <div class="chips" id="cat-filters"></div>
+        <div id="trays" style="flex:1 1 auto;min-height:0;overflow-y:auto"></div>
+      </div>
+    </section>
+
+    <section class="psection" id="sec-colors">
+      <button class="phead" aria-expanded="true"><span>Colours</span><span class="count" id="color-name"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody">
+        <div class="chips" id="color-types"></div>
+        <div class="swatches" id="swatches"></div>
+        <div style="display:flex;gap:6px;align-items:center;margin-top:9px">
+          <input type="color" id="custom-color" value="#ff8800" style="width:38px;height:30px;padding:0;border:1px solid var(--line);border-radius:6px;background:var(--sunk)" aria-label="Custom colour">
+          <button class="btn sm" id="btn-custom">Add custom colour</button>
+        </div>
+        <p class="hint">Placing uses the selected colour. With bricks selected, this recolours them.</p>
+      </div>
+    </section>
+
+    <section class="psection closed" id="sec-challenges">
+      <button class="phead" aria-expanded="false"><span>Challenges</span><span class="count" id="chal-state"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="challenges"></div>
+    </section>
+  </aside>
+
+  <main id="stage">
+    <canvas id="gl" tabindex="0" aria-label="Building workspace. Arrow keys move the piece, Enter places it."></canvas>
+    <div id="marquee"></div>
+    <div id="compass-hit" title="Click a face to snap to that view" role="button" tabindex="0" aria-label="Orientation cube: click a face to change the view"></div>
+    <div class="stage-float" id="viewbar">
+      <div class="seg">
+        <button class="btn sm" data-view="front" title="Front (1)">Front</button>
+        <button class="btn sm" data-view="back" title="Back (2)">Back</button>
+        <button class="btn sm" data-view="left" title="Left (3)">Left</button>
+        <button class="btn sm" data-view="right" title="Right (4)">Right</button>
+        <button class="btn sm" data-view="top" title="Top (5)">Top</button>
+        <button class="btn sm" data-view="iso" title="Isometric (6)">Iso</button>
+      </div>
+      <div class="seg">
+        <button class="btn sm" id="btn-frame-sel" title="Frame the selection (F)">Frame</button>
+        <button class="btn sm" id="btn-frame-all" title="Frame the whole model (Shift+F)">All</button>
+        <button class="btn sm" id="btn-ortho" title="Perspective or orthographic camera">Persp</button>
+        <button class="btn sm" id="btn-turntable" title="Slow turntable rotation">Spin</button>
+        <button class="btn sm" id="btn-reset-cam" title="Reset the camera">Reset</button>
+      </div>
+    </div>
+    <div id="stage-msg" role="status" aria-live="polite"></div>
+  </main>
+
+  <aside id="right" class="panel" aria-label="Inspector">
+    <div class="grip" id="grip-right" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Resize the inspector"></div>
+
+    <section class="psection" id="sec-inspect">
+      <button class="phead" aria-expanded="true"><span>Inspector</span><span class="count" id="sel-count"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="inspector"></div>
+    </section>
+
+    <section class="psection" id="sec-stats">
+      <button class="phead" aria-expanded="true"><span>Build statistics</span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="stats"></div>
+    </section>
+
+    <section class="psection closed" id="sec-analysis">
+      <button class="phead" aria-expanded="false"><span>Stability</span><span class="count" id="analysis-state"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="analysis"></div>
+    </section>
+
+    <section class="psection closed adv" id="sec-layers">
+      <button class="phead" aria-expanded="false"><span>Layers &amp; model tree</span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="layers"></div>
+    </section>
+
+    <section class="psection closed adv" id="sec-steps">
+      <button class="phead" aria-expanded="false"><span>Instructions</span><span class="count" id="steps-count"></span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="steps"></div>
+    </section>
+
+    <section class="psection closed" id="sec-surface">
+      <button class="phead" aria-expanded="false"><span>Workspace</span><span class="chev">&#9662;</span></button>
+      <div class="pbody" id="surface"></div>
+    </section>
+  </aside>
+
+  <footer id="status">
+    <div class="cell"><span class="k">Tool</span><span class="v" id="st-tool">Place</span></div>
+    <div class="cell"><span class="k">At</span><span class="v" id="st-pos">&#8212;</span></div>
+    <div class="cell"><span class="k">Snap</span><span class="v" id="st-snap">Stud</span></div>
+    <div class="cell"><span class="k">Bricks</span><span class="v" id="st-count">0</span></div>
+    <div class="cell"><span class="k">FPS</span><span class="v" id="st-fps">&#8212;</span></div>
+    <div class="cell"><span class="dot" id="st-savedot"></span><span class="v" id="st-save">Saved</span></div>
+    <div class="cell grow" id="st-msg">Pick a brick from the trays, then click the surface to place it.</div>
+  </footer>
+</div>
+
+<div id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+<dialog id="dlg-welcome" aria-labelledby="welcome-title">
+  <div class="dlg-head" id="welcome-title">Welcome to BRICKWORK</div>
+  <div class="dlg-body">
+    <p style="margin-top:0">A box of bricks and a table. Everything stays on this machine &#8212; no account, no upload, no tracking.</p>
+    <div class="cards" id="welcome-cards"></div>
+  </div>
+  <div class="dlg-foot">
+    <label class="row left"><input type="checkbox" id="welcome-never"><span>Do not show this again</span></label>
+    <button class="btn" data-close>Skip and start building</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-main" aria-labelledby="dlg-main-title">
+  <div class="dlg-head" id="dlg-main-title">Project</div>
+  <div class="dlg-body" id="dlg-main-body"></div>
+  <div class="dlg-foot" id="dlg-main-foot"><button class="btn" data-close>Close</button></div>
+</dialog>
+
+<dialog id="dlg-confirm" aria-labelledby="dlg-confirm-title">
+  <div class="dlg-head" id="dlg-confirm-title">Are you sure?</div>
+  <div class="dlg-body" id="dlg-confirm-body"></div>
+  <div class="dlg-foot">
+    <button class="btn" id="confirm-no" data-close>Cancel</button>
+    <button class="btn danger" id="confirm-yes">Yes, do it</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-prompt" aria-labelledby="prompt-title">
+  <div class="dlg-head" id="prompt-title">Name</div>
+  <div class="dlg-body">
+    <label id="prompt-label" for="prompt-input"></label>
+    <input class="ctl" id="prompt-input" style="margin-top:8px">
+  </div>
+  <div class="dlg-foot">
+    <button class="btn" id="prompt-no" data-close>Cancel</button>
+    <button class="btn primary" id="prompt-yes">OK</button>
+  </div>
+</dialog>
+
+<dialog id="dlg-tutorial" aria-labelledby="tut-title">
+  <div class="dlg-head" id="tut-title">Guided build</div>
+  <div class="dlg-body" id="tut-body"></div>
+  <div class="dlg-foot">
+    <button class="btn left" id="tut-quit">Stop the tutorial</button>
+    <button class="btn" id="tut-back">Back</button>
+    <button class="btn primary" id="tut-next">Next</button>
+  </div>
+</dialog>
+
+<noscript>
+  <p style="padding:24px;font:16px system-ui">BRICKWORK needs JavaScript. It runs entirely in your browser &#8212; nothing is sent anywhere.</p>
+</noscript>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

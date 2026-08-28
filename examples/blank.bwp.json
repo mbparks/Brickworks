@@ -1,0 +1,24 @@
+{
+ "format": "brickwork-project",
+ "schema": 3,
+ "app": "1.0.0",
+ "id": "proj_mtcxx9of_1br",
+ "name": "Blank baseplate",
+ "created": 1787920871487,
+ "sample": true,
+ "settings": {
+  "baseW": 32,
+  "baseD": 32
+ },
+ "layers": [
+  {
+   "id": "layer_base",
+   "name": "Layer 1",
+   "color": "#F5CD2F",
+   "visible": true,
+   "locked": false
+  }
+ ],
+ "groups": [],
+ "bricks": []
+}
